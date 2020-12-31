@@ -1,0 +1,47 @@
+import turtle
+
+wn = turtle.Screen()
+alex = turtle.Turtle()
+
+alex.penup()
+alex.forward(-200)
+alex.pendown()
+
+min = int(input("Enter minimum: "))
+lq = int(input("Enter lower quartile: "))
+med = int(input("Enter median: "))
+uq = int(input("Enter upper quartile: "))
+max = int(input("Enter maximum: "))
+
+def linedraw():
+    alex.lt(90)
+    alex.fd(50)
+    alex.fd(-100)
+    alex.fd(50)
+    alex.rt(90)
+
+linedraw()
+alex.forward(lq-min)
+linedraw()
+alex.lt(90)
+alex.fd(50)
+alex.rt(90)
+alex.forward(med-lq)
+alex.rt(90)
+alex.fd(100)
+alex.rt(90)
+alex.forward(med-lq)
+alex.rt(180)
+alex.forward(uq-lq)
+alex.lt(90)
+alex.fd(100)
+alex.lt(90)
+alex.forward(uq-med)
+alex.forward(-(uq-med))
+alex.lt(90)
+alex.fd(50)
+alex.lt(90)
+alex.forward(max-uq)
+linedraw()
+
+wn.mainloop()
