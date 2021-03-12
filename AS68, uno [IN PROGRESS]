@@ -1,0 +1,100 @@
+import random
+color = ''
+number = 0
+
+# when turn = 0, its the computers turn.
+# when turn = 1, its the human's turn
+
+turn = 1
+def p1game(playc):
+    if playc[0] == 'p':
+        for i in range (4):
+            x = random.choice(cards)
+            cc.append(x)
+            cards.remove(x)
+    elif playc[1] == 'p':
+        for i in range (2):
+            y = random.choice(cards)
+            cc.append(y)
+            cards.remove(y)
+    elif playc[0] == 'c':
+        playc = input("Enter your new card with new colour: ")
+    else:
+        cards.append(playc)
+        pc.remove(playc)
+        print ("Your new cards are ", pc)
+
+print ("Welcome to Uno! I'm assuming you know the rules.")
+print ("The key for this game is: ")
+print ("y = yellow, b = blue, g = green, r = red")
+print ("p2 = 2+, p4 = 4+, c = colour change. ")
+print (" ")
+
+cards = ['y1','y2','y3','y4','y5','y6','y7','y8','y9','yp2','y1','y2','y3','y4','y5','y6','y7','y8','y9','yp2','r1','r2','r3','r4','r5','r6','r7','r8','r9','rp2', 'r1','r2','r3','r4','r5','r6','r7','r8','r9','rp2','b1','b2','b3','b4','b5','b6','b7','b8','b9','bp2', 'b1','b2','b3','b4','b5','b6','b7','b8','b9','bp2', 'g1','g2','g3','g4','g5','g6','g7','g8','g9','gp2', 'g1','g2','g3','g4','g5','g6','g7','g8','g9','gp2','p41','p42','p43','p44','c1','c2','c3','c4']
+normcards = ['y1','y2','y3','y4','y5','y6','y7','y8','y9','y1','y2','y3','y4','y5','y6','y7','y8','y9','r1','r2','r3','r4','r5','r6','r7','r8','r9','r1','r2','r3','r4','r5','r6','r7','r8','r9','b1','b2','b3','b4','b5','b6','b7','b8','b9', 'b1','b2','b3','b4','b5','b6','b7','b8','b9', 'g1','g2','g3','g4','g5','g6','g7','g8','g9', 'g1','g2','g3','g4','g5','g6','g7','g8','g9']
+
+yellow = ['y1','y2','y3','y4','y5','y6','y7','y8','y9','yp2','y1','y2','y3','y4','y5','y6','y7','y8','y9','yp2']
+red = ['r1','r2','r3','r4','r5','r6','r7','r8','r9','rp2', 'r1','r2','r3','r4','r5','r6','r7','r8','r9','rp2']
+blue = ['b1','b2','b3','b4','b5','b6','b7','b8','b9','bp2', 'b1','b2','b3','b4','b5','b6','b7','b8','b9','bp2']
+green = ['g1','g2','g3','g4','g5','g6','g7','g8','g9','gp2', 'g1','g2','g3','g4','g5','g6','g7','g8','g9','gp2']
+
+pc = []
+cc = []
+
+for i in range(7):
+    a = random.choice(cards)
+    pc.append(a)
+    cards.remove(a)
+    b = random.choice(cards)
+    cc.append(b)
+    cards.remove(b)
+
+print ("Your cards are: ")
+print (pc)
+
+start = random.choice(normcards)
+print("The starting card is", start)
+color = start[0]
+number = start[1]
+
+while len(pc) != 0 or len(cc) != 0 or len(cards) != 0:
+    playc = input("If you want to pick a card from the deck, type in 'n'. Enter your card: ")
+    while playc == 'n':
+        pc.append(random.choice(cards))
+        print ("Your new cards are ", pc)
+        playc = input("If you want to pick a card from the deck, type in 'n'. Enter your card: ")
+    if playc != 'n':
+        if playc not in pc:
+            print ("Please always use YOUR cards and retry. ")
+            break
+        elif playc in pc:
+            if playc[0] == 'p':
+                for i in range (4):
+                    x = random.choice(cards)
+                    cc.append(x)
+                    cards.remove(x)
+                cards.append(playc)
+                pc.remove(playc)
+                print ("Your new cards are ", pc)
+            elif playc[1] == 'p':
+                for i in range (2):
+                    y = random.choice(cards)
+                    cc.append(y)
+                    cards.remove(y)
+                cards.append(playc)
+                pc.remove(playc)
+                print ("Your new cards are ", pc)
+            elif playc[0] == 'c':
+                color = input("Enter your new card with new colour in LOWERCASE: ")
+            elif playc[0] == color:
+                colour = playc[0]
+                number = playc[1]
+                cards.append(playc)
+                pc.remove(playc)
+                print ("Your new cards are ", pc)
+    else:
+        print ("WRONG input. Read the rules and try again.")
+        break
+    print ("Computer's turn! ")
+    if color == 'red':
+        if
